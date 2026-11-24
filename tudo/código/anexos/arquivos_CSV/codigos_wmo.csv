@@ -1,0 +1,29 @@
+weather_code,descricao,icone
+0,Céu limpo,sol.svg
+1,Predominantemente limpo,sol.svg
+2,Parcialmente nublado,nublado.svg
+3,Nublado,nublado.svg
+45,Neblina,nublado.svg
+48,Neblina com geada,nublado.svg
+51,Garoa leve,chuva.svg
+53,Garoa moderada,chuva.svg
+55,Garoa intensa,chuva.svg
+56,Garoa congelante leve,chuva.svg
+57,Garoa congelante intensa,chuva.svg
+61,Chuva leve,chuva.svg
+63,Chuva moderada,chuva.svg
+65,Chuva forte,chuva.svg
+66,Chuva congelante leve,chuva.svg
+67,Chuva congelante forte,chuva.svg
+71,Neve leve,neve.svg
+73,Neve moderada,neve.svg
+75,Neve forte,neve.svg
+77,Grãos de neve,neve.svg
+80,Pancadas de chuva leves,chuva.svg
+81,Pancadas de chuva,chuva.svg
+82,Pancadas de chuva fortes,chuva.svg
+85,Pancadas de neve leves,neve.svg
+86,Pancadas de neve fortes,neve.svg
+95,Tempestade,tempestade.svg
+96,Tempestade com granizo,tempestade.svg
+99,Tempestade forte com granizo,tempestade.svg

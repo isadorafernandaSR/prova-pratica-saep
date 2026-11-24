@@ -1,0 +1,84 @@
+======================================================================
+ ANEXOS DA AVALIAÇÃO - PORTAL DO TEMPO "SOL CHUVA"
+ Curso: Técnico em Informática para Internet  |  Fase 2 (frontend + API)
+======================================================================
+
+Estes arquivos acompanham o caderno de prova. Utilize-os no desenvolvimento
+do sistema web (HTML5, CSS3 e JavaScript puro). Nesta fase NÃO há servidor de
+back-end nem banco de dados: o sistema roda no navegador e consome uma API
+pública de clima gratuita (sem cadastro e sem chave).
+
+----------------------------------------------------------------------
+ESTRUTURA DE PASTAS
+----------------------------------------------------------------------
+anexos/
+├── logo/
+│   └── solchuva.svg ............. logo do portal (usar no cabeçalho)
+├── icones/
+│   ├── sol.svg ................. tempo: céu limpo
+│   ├── nublado.svg ............. tempo: nublado / parcialmente nublado
+│   ├── chuva.svg ............... tempo: chuva / garoa
+│   ├── neve.svg ................ tempo: neve
+│   ├── tempestade.svg .......... tempo: tempestade
+│   ├── busca.svg ............... ícone do botão "Buscar"
+│   ├── termometro.svg .......... detalhe: sensação térmica
+│   ├── umidade.svg ............. detalhe: umidade do ar
+│   ├── vento.svg ............... detalhe: velocidade do vento
+│   ├── chuva-gota.svg .......... detalhe: precipitação
+│   ├── uv.svg .................. detalhe: índice UV
+│   ├── nascer-sol.svg ......... detalhe: nascer do sol
+│   └── por-sol.svg ............ detalhe: pôr do sol
+└── arquivos_CSV/
+    ├── cidades.csv ............. cidades de exemplo (coordenadas)
+    └── codigos_wmo.csv ........ tabela de códigos de tempo (weather_code)
+
+----------------------------------------------------------------------
+API DE CLIMA (gratuita, sem cadastro e sem chave)
+----------------------------------------------------------------------
+Recomendada: OPEN-METEO (https://open-meteo.com/)
+
+  1) Geocodificação (nome da cidade -> lat/long):
+     https://geocoding-api.open-meteo.com/v1/search
+       ?name=Florianopolis&count=1&language=pt&format=json
+
+  2) Previsão (lat/long -> clima atual + 10 dias):
+     https://api.open-meteo.com/v1/forecast
+       ?latitude=-27.59&longitude=-48.55
+       &current=temperature_2m,relative_humidity_2m,apparent_temperature,
+                precipitation,weather_code,wind_speed_10m
+       &daily=weather_code,temperature_2m_max,temperature_2m_min,
+              precipitation_probability_max,uv_index_max,sunrise,sunset
+       &timezone=auto&forecast_days=10
+
+Observação: a API de previsão retorna os campos "current" (clima atual) e
+"daily" (previsão por dia). Use forecast_days=10 para obter 10 dias.
+
+----------------------------------------------------------------------
+ARQUIVOS DE DADOS (arquivos_CSV)
+----------------------------------------------------------------------
+cidades.csv
+  Colunas: nome, estado_pais, latitude, longitude
+  - Sugestões de localidades para o campo de busca / botões rápidos.
+  - As coordenadas podem ser usadas como referência; o aluno PODE buscá-las
+    pela API de geocodificação. Não é obrigatório fixar as coordenadas.
+
+codigos_wmo.csv
+  Colunas: weather_code, descricao, icone
+  - Traduz o "weather_code" (padrão WMO) devolvido pela API para uma
+    descrição em português e o ícone correspondente (pasta icones/).
+  - Use esta tabela para exibir a descrição/ícone do tempo (clima atual e
+    previsão).
+
+----------------------------------------------------------------------
+ORIENTAÇÕES RÁPIDAS
+----------------------------------------------------------------------
+- Use a fonte Inter em todos os textos.
+- Cores base: #333333, #FFFFFF e #483DAD (destaque). Vermelho #FF0000 apenas
+  para mensagens de erro.
+- Todo o consumo da API deve ser feito com fetch assíncrono (async/await) e
+  com tratamento de erro (try/catch).
+- Sirva a pasta por HTTP (ex.: python3 -m http.server 8099) para que o fetch
+  funcione; abrir o arquivo direto por file:// pode ser bloqueado.
+- Exiba o MÁXIMO de informações: clima atual (temperatura, descrição,
+  sensação, umidade, vento, precipitação, UV, nascer/pôr do sol) e a
+  previsão de 10 dias (aparece "Hoje", "Amanhã" e os dias seguintes).
