@@ -24,10 +24,24 @@
         </div>
         <div class="Pesquisa">
             <input
-            type="text"
-            id="cidade"
-            placeholder="Digite o nome de uma cidade..."
-            >
+    type="text"
+    id="cidade"
+    list="listaCidades"
+    placeholder="Digite o nome de uma cidade..."
+>
+
+<datalist id="listaCidades">
+    <option value="Florianópolis">
+    <option value="São Paulo">
+    <option value="Rio de Janeiro">
+    <option value="Brasília">
+    <option value="Salvador">
+    <option value="Porto Alegre">
+    <option value="Curitiba">
+    <option value="Recife">
+    <option value="Fortaleza">
+    <option value="Manaus">
+</datalist>
             <button id="btnBuscar">
                 <img src="../anexos/icones/busca.svg">
                 Buscar
