@@ -1,0 +1,158 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sol Chuva</title>
+
+    <!-- conectando o css primeiro -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- cabecalho -->
+    <header class="cabecalho">
+
+        <div class="logo">
+            <img src="anexos/logo/solchuva.svg" alt="Logo Sol Chuva">
+            <h1>Sol Chuva</h1>
+        </div>
+
+        <!-- pesquisa -->
+        <div class="pesquisa">
+
+            <input
+                type="text"
+                id="cidade"
+                list="listaCidades"
+                placeholder="Digite o nome de uma cidade..."
+            >
+
+            <datalist id="listaCidades">
+                <option value="Florianópolis">
+                <option value="São Paulo">
+                <option value="Rio de Janeiro">
+                <option value="Brasília">
+                <option value="Salvador">
+                <option value="Porto Alegre">
+                <option value="Curitiba">
+                <option value="Recife">
+                <option value="Fortaleza">
+                <option value="Manaus">
+            </datalist>
+
+            <button id="btnBuscar">
+                Buscar
+            </button>
+
+        </div>
+
+    </header>
+
+
+<main class="conteudo">
+
+    <!--idades de acesso facil tipo automatico -->
+    <section class="cidades">
+        <h2>Pesquise também:</h2>
+
+        <div class="botoes-cidades">
+            <button class="cidade-rapida" data-cidade="Florianópolis">Florianópolis</button>
+            <button class="cidade-rapida" data-cidade="São Paulo">São Paulo</button>
+            <button class="cidade-rapida" data-cidade="Curitiba">Curitiba</button>
+            <button class="cidade-rapida" data-cidade="Rio de Janeiro">Rio de Janeiro</button>
+        </div>
+    </section>
+
+    <!-- mensagens do sistema -->
+    <p id="mensagem" hidden></p>
+
+    <p id="carregando" hidden>
+        Carregando dados do clima...
+    </p>
+
+    <!--clima no momento presente agora -->
+    <section class="clima-atual">
+
+        <h2 id="localNome">Clima atual</h2>
+        <p id="localRegiao"></p>
+
+        <div class="temperatura-principal">
+            <img id="iconeClima" src="" alt="" hidden>
+
+            <div>
+                <h1 id="temperatura">--°C</h1>
+                <p id="descricaoClima">Aguardando pesquisa...</p>
+            </div>
+        </div>
+
+        <div class="detalhes-clima">
+
+            <div>
+                <img src="anexos/icones/termometro.svg" alt="">
+                <p>Sensação térmica</p>
+                <span id="sensacao">--</span>
+            </div>
+
+            <div>
+                <img src="anexos/icones/umidade.svg" alt="">
+                <p>Umidade</p>
+                <span id="umidade">--</span>
+            </div>
+
+            <div>
+                <img src="anexos/icones/vento.svg" alt="">
+                <p>Vento</p>
+                <span id="vento">--</span>
+            </div>
+
+            <div>
+                <img src="anexos/icones/chuva-gota.svg" alt="">
+                <p>Precipitação</p>
+                <span id="precipitacao">--</span>
+            </div>
+
+            <div>
+                <img src="anexos/icones/uv.svg" alt="">
+                <p>Índice UV</p>
+                <span id="uv">--</span>
+            </div>
+
+            <div>
+                <img src="anexos/icones/nascer-sol.svg" alt="">
+                <p>Nascer do sol</p>
+                <span id="nascerSol">--</span>
+            </div>
+
+            <div>
+                <img src="anexos/icones/por-sol.svg" alt="">
+                <p>Pôr do sol</p>
+                <span id="porSol">--</span>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!--a aqui previsão dos próximos dias -->
+    <section class="previsao">
+
+        <h2>Previsão para os próximos 10 dias</h2>
+
+        <div id="previsaoDias" class="previsao-dias">
+        </div>
+
+    </section>
+
+</main>
+
+
+    <!--conectando o js obv ne-->
+    <script src="script.js"></script>
+
+</body>
+</html>
